@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um Pedido Especial!</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <title>Pergunta para o João ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
+            overflow: hidden;
+        }
+        h1 { color: #d63384; }
+        .buttons { position: relative; width: 100%; height: 200px; display: flex; justify-content: center; align-items: center; }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #btnSim { background-color: #4caf50; color: white; margin-right: 20px; }
+        #btnNao { background-color: #f44336; color: white; position: absolute; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Olá, meu amor João! ❤️</h1>
-        <p class="message">
-            Este ano, o Dia dos Namorados está quase a chegar e eu tenho uma pergunta...<br>
-            Queres ser o meu Valentine? (Diz que sim, por favor!)
-        </p>
 
-        <div class="heart-box" id="heartBox">
-            <span class="heart-emoji">💖</span>
-            <p>Aceitas?</p>
-            <button class="yes-button" id="yesButton">Sim!</button>
-        </div>
+    <h1>João, queres passar o Dia de São Valentim comigo? ❤️</h1>
 
-        <div class="response-container hidden" id="responseContainer">
-            <h2 class="response-title">YAY! 🎉</h2>
-            <p class="response-message">Sabia que dirias que sim! És o melhor Valentine de sempre!</p>
-            <p class="signature">Com todo o meu amor, Filipa</p>
-        </div>
+    <div class="buttons">
+        <button id="btnSim" onclick="aceitou()">SIM!</button>
+        <button id="btnNao" onmouseover="foge()">Não</button>
     </div>
-    <div class="confetti-container" id="confettiContainer"></div>
-    <script src="script.js"></script>
+
+    <script>
+        function foge() {
+            const btnNao = document.getElementById('btnNao');
+            // Calcula posições aleatórias na janela
+            const larguraJanela = window.innerWidth - 100;
+            const alturaJanela = window.innerHeight - 50;
+            
+            const novaX = Math.random() * larguraJanela;
+            const novaY = Math.random() * alturaJanela;
+
+            btnNao.style.left = novaX + 'px';
+            btnNao.style.top = novaY + 'px';
+        }
+
+        function aceitou() {
+            alert("Sabia que ias dizer que sim! 😍 Mal posso esperar!");
+        }
+    </script>
 </body>
 </html>
